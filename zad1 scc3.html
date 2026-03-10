@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Лабораторная работа 3 CSS</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+}
+
+/* Шапка */
+.header {
+    background: #2c3e50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+/*  ГОРИЗОНТАЛЬНОЕ МЕНЮ */
+.nav {
+    background: #ffffff;
+    height: 50px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    padding-left: 250px; /* отступ слева */
+}
+
+/* пункты меню */
+.nav .pt {
+    float: left;
+    display: block;
+    padding: 15px 35px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-right: 2px solid #000;
+    border-left: 2px solid #000;
+    background: linear-gradient(to bottom, #e3e3e3, #efefef);
+}
+
+.nav .pt:hover {
+    background: #e1ff00;
+}
+
+/* пункт с подменю */
+.menu-item {
+    float: left;
+    position: relative;
+}
+
+/* выпадающее меню */
+.drop {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    min-width: 155px;
+    z-index: 5;
+}
+
+.drop_item {
+    display: block;
+    padding: 12px 10px;
+    text-decoration: none;
+    color: #000;
+    background: linear-gradient(to bottom, #ffffff, #efefef);
+    border-bottom: 1px solid #000;
+}
+
+.drop_item:hover {
+    background: #ddd;
+}
+
+.menu-item:hover .drop {
+    display: block;
+}
+
+/*  ОБЩИЙ КОНТЕЙНЕР */
+.wrapper {
+    padding: 35px;
+}
+
+/*  ЛЕВАЯ КОЛОНКА  */
+.left {
+    float: left;
+    width: 25%;
+    background: #dfe6e9;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+/*  ПРАВАЯ КОЛОНКА  */
+.right {
+    float: right;
+    width: 25%;
+    background: #dfe6e9;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+/*  ЦЕНТР  */
+.center {
+    overflow: hidden; /* обязательно по заданию */
+    background: white;
+    padding: 55px;
+    min-height: 350px;
+    text-align: center; /* выравнивание текста по центру */
+    
+}
+
+/* очистка float карточек */
+.center::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/*  КАРТОЧКИ  */
+.card {
+    position: relative;
+    width: 45%;
+    padding: 30px;
+    background: #74b9ff;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    margin: 10px 2.5%;
+    float: left;
+    box-sizing: border-box;
+}
+
+/* ПОДСКАЗКА (ВЫПОЛЗАЕТ СВЕРХУ) */
+.tooltip {
+    position: absolute; 
+    bottom: 100%; /*ставит нижний край подсказки на уровень верхнего края родителя.*/
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: rgba(0,0,0,0.85);
+    color: white;
+    font-size: 14px;
+
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.3s ease;
+}
+
+/* появление */
+.card:hover .tooltip {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/*  подвал  */
+.footer {
+    clear: both;
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 25px;
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <h1>Сайт Лоскутова Кирилла</h1>
+</header>
+
+<!--  МЕНЮ  -->
+<nav class="nav">
+
+    <div class="menu-item">
+        <a class="pt" href="#">Главная</a>
+        <div class="drop">
+            <a class="drop_item" href="#">Главная страница</a>
+            <a class="drop_item" href="#">Обзор сайта</a>
+            <a class="drop_item" href="#">Обновления</a>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <a class="pt" href="#">Новости</a>
+        <div class="drop">
+            <a class="drop_item" href="#">Последние новости</a>
+            <a class="drop_item" href="#">Популярные</a>
+            <a class="drop_item" href="#">Архив</a>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <a class="pt" href="#">Услуги</a>
+        <div class="drop">
+            <a class="drop_item" href="#">Веб-дизайн</a>
+            <a class="drop_item" href="#">Верстка сайтов</a>
+            <a class="drop_item" href="#">SEO продвижение</a>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <a class="pt" href="#">Контакты</a>
+        <div class="drop">
+            <a class="drop_item" href="https://t.me/your_username" target="_blank">Telegram</a>
+            <a class="drop_item" href="#">Email</a>
+            <a class="drop_item" href="#">Адрес</a>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <a class="pt" href="#">О нас</a>
+        <div class="drop">
+            <a class="drop_item" href="#">Компания</a>
+            <a class="drop_item" href="#">Команда</a>
+            <a class="drop_item" href="#">История</a>
+        </div>
+    </div>
+
+</nav>
+
+<div class="wrapper">
+
+    <!-- левый -->
+    <div class="left">
+        <h3>Левая колонка</h3>
+        <p>Информация о сайте</p>
+    </div>
+
+    <!-- правый -->
+    <div class="right">
+        <h3>Правая колонка</h3>
+        <p>Важная информация</p>
+    </div>
+
+    <!-- центр -->
+    <div class="center">
+        <h2>Центральная колонка</h2>
+
+        <div class="card">
+            <p>Карточка 1</p>
+            <div class="tooltip">Подсказка сверху №1</div>
+        </div>
+
+        <div class="card">
+            <p>Карточка 2</p>
+            <div class="tooltip">Подсказка сверху №2</div>
+        </div>
+
+        <div class="card">
+            <p>Карточка 3</p>
+            <div class="tooltip">Подсказка сверху №3</div>
+        </div>
+
+        <div class="card">
+            <p>Карточка 4</p>
+            <div class="tooltip">Подсказка сверху №4</div>
+        </div>
+
+        <div class="card">
+            <p>Карточка 5</p>
+            <div class="tooltip">Подсказка сверху №5</div>
+        </div>
+
+        <div class="card">
+            <p>Карточка 6</p>
+            <div class="tooltip">Подсказка сверху №6</div>
+        </div>
+    </div>
+
+</div>
+
+<footer class="footer">
+    Учебный сайт УУНИТ 2026
+</footer>
+
+</body>
+</html> обьясни 

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Вертикальное меню</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    background:#e1ff00;
+}
+
+/* основное меню */
+
+.menu{
+    list-style:none;
+    padding:0;
+    margin:30px;
+    width:200px;
+}
+
+.menu li{
+    position:relative;
+}
+
+/* кнопки меню */
+
+.menu a{
+    display:block;
+    padding:15px;
+    text-decoration:none;
+    color:white;
+    background:#34495e;
+    border:2px solid #ffffff;
+}
+
+/* эффект наведения */
+
+.menu a:hover{
+    background:#ff0000;
+}
+
+/* подменю */
+
+.submenu{
+    list-style:none;
+    padding:0;
+    margin:0;
+    position:absolute;
+    left:200px;
+    top:0;
+    width:180px;
+    display:none;
+}
+
+/* цвет подменю */
+
+.submenu a{
+    background:#3498db;
+}
+
+.submenu a:hover{
+    background:#00ff15;
+}
+
+/* второе подменю */
+
+.submenu2{
+    list-style:none;
+    padding:0;
+    margin:0;
+    position:absolute;
+    left:180px;
+    top:0;
+    width:150px;
+    display:none;
+}
+
+/* цвет второго подменю */
+
+.submenu2 a{
+    background:#9b59b6;
+}
+
+.submenu2 a:hover{
+    background:#ff5500;
+}
+
+/* показываем подменю */
+
+.menu li:hover > .submenu{
+    display:block;
+}
+
+.submenu li:hover > .submenu2{
+    display:block;
+}
+
+</style>
+</head>
+
+<body>
+
+<ul class="menu">
+
+<li>
+<a href="#">ГЛАВНАЯ</a>
+
+<ul class="submenu">
+<li><a href="#">Главная страница</a></li>
+<li><a href="#">Контакты</a></li>
+<li><a href="#">О нас</a></li>
+</ul>
+
+</li>
+
+<li><a href="#">ОТДЕЛЫ ПРОДАЖ</a></li>
+
+<li>
+<a href="#">ПОСТАВЩИКИ</a>
+
+<ul class="submenu">
+
+<li><a href="#">ООО "Дизайн"</a></li>
+<li><a href="#">ООО "Видео"</a></li>
+
+<li>
+<a href="#">ООО "Фото"</a>
+
+<ul class="submenu2">
+<li><a href="#">Мой Филиал 1</a></li>
+<li><a href="#">Мой Филиал 2</a></li>
+</ul>
+
+</li>
+
+</ul>
+
+</li>
+
+<li><a href="#">НАШИ УСЛУГИ</a></li>
+<li><a href="#">КОНТАКТЫ</a></li>
+<li><a href="#">О НАС</a></li>
+
+</ul>
+
+</body>
+</html>
